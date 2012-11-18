@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import zhstructures.*;
+import javax.swing.event.*;
+import objectdraw.*;
+
+public class IrradianceCalculator {
+  private double l0, d, alpha, x, mu, beta, m, p, p0, delta, mp;
+ 
+  public IrradianceCalculator(){
+    
+  }
+  
+  public double getIrradiance(){
+   return  l0*Math.pow(d, -2)*Math.exp( -alpha*x*mu-beta*m*p/p0-delta*mp);
+  }
+  
+}

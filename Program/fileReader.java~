@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*; 
+
+
+public class fileReader {
+ private Scanner sc;
+ private String time;
+ public Set<Map<String, String>> set; 
+ 
+ public fileReader(String fileName){
+   try{
+     sc=new Scanner(fileName);
+   }
+   catch (Exception e){
+    System.out.println("error in reading file"); 
+   }
+   String line;
+   line=sc.nextLine();
+   time=line.subString(8, 22);
+   sc.nextLine();
+   while(sc.hasNextline){
+     line=sc.nextLine();
+     String waveLength = line.subString(1, 6);
+     String result = line.subString(9, 20);
+     set.put(new Map<String, String>(waveLength, result>));
+   }
+   sc.close();
+ }
+ 
+ public String getResult(String w){
+   for(Map m:set){
+     if(m.contains(w)){
+      return m.get(w); 
+     }
+   }
+   return null;
+ }
+}

@@ -1,0 +1,16 @@
+2011-06-01
+Experiment Start Time: 10:02
+Setup:
+1.View---Radiometer--Watts;
+2.Setup---DetectorIntegration Time=25ms;
+3.Setup---Number of Scansto Average = 5
+4.setup---Spectral Smoothing Controls--Pixed Box Car=0;
+5.Sepup---Temperature Compensation--On
+6.Do a Dark Scan( Forget to cover CCD......)
+First data was taken at 10:07;
+2nd: 10:18;
+3rd: 10:28;
+4th: 10:38
+...
+redo the Dark Scan at 12:50, Data taken after that is fine.
+Data taking ends because of the light cloud at 14:51;

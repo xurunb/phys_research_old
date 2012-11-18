@@ -1,0 +1,48 @@
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import zhstructures.*;
+
+public class FileWriter{
+ private PrintWriter pt;
+ 
+ public FileWriter(String [] args){
+  int size=args.length-1;
+   FileReader reader[]= new FileReader[size];
+   for(int i=0;i<size;i++){
+    reader[i]=new FileReader(args[i]); 
+   }
+   ZHTreeMap<String, ZHCompPair<String, String>> set =new ZHTreeMap<String, ZHCompPair<String, String>>();
+   ArrayList<String> wmoList=new ArrayList<String>();
+   wmoList.add("368.00");
+   wmoList.add("412.00");
+   wmoList.add("500.00");
+   wmoList.add("610.00");
+   wmoList.add("675.00");
+   wmoList.add("778.00");
+   wmoList.add("862.00");
+   for(String w:wmoList){
+     for(int i=0; i< size+1; i++){
+      set.put(w, new ZHCompPair<String, String>(reader[i].getTime(), reader[i].getResult(w)));
+     }
+   }
+   try{
+     pt=new PrintWriter (args[size]);
+   }
+   catch(Exception e){
+    System.out.println("Error in printer");
+   }
+   for(String w:wmoList){
+     pt.printf("%s \n", w);
+     for(int i=0; i<size+1;i++){
+      pt.printf("%s \n", reader[i].getTime());
+     }
+     for(int i=0; i<size+1;i++){
+      pt.printf("%s \n", reader[i].getResult(w));
+     }
+   }
+   pt.close(); 
+ }
+  
+}
